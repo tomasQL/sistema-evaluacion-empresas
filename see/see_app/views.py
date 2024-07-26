@@ -1,6 +1,12 @@
 from django.shortcuts import render
+from see_app.models import Perfilempresa
 
 # Create your views here.
+
+def inicio(request):
+    recomendados=Perfilempresa.objects.all()
+    data={"recomendados":recomendados}
+    return render(request, "see_app/inicio.html", data)
 
 def registrar_usuario():
     pass

@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Inicio S.E.E</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <!-- <link rel="stylesheet" href="{% static 'css/styles.css' %}" -->
+
+</head>
+
+<body class="container mb-3">
+    <main>
+        <div class="text-center">
+        </div>
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">Bienvenido a SEE</h1>
+                    <p class="font-weight-bold">Busca la información que necestas sobre la organización que quieras</p>
+                    <p>
+                        <a href="/inicio" class="btn btn-primary my-2">Registrarse / Identificarse</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <hr>
+    <section>
+        {% if recomendados %}
+        <div class="row">
+            {% for i in recomendados %}
+            <div class="col-12 col-md-3 mb4">
+                <div class="card" style="width: 18rem;">
+                    <img src="/imagenes/{{i.logoempresa}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{i.nombreempresa}}</h5>
+                        <h6 class="card-text">{{i.esloganempresa}}</h6>
+                        <p class="card-text">{{i.descripcionempresa}}</p>
+                        <a href="/visitar_empresa/{{i.id_perfilempresa}}" class="btn btn-primary">Visitar empresa</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+
+        {% endif %}
+    </section>
+    <footer class="text-muted py-5">
+        <div class="container">
+            <!-- <p class="float-end mb-1"><a href="#">Volver arriba</a></p> -->
+            <p class="mb-1">&reg; Evalúa Empresas</p>
+        </div>
+    </footer>
+</body>
+
+</html>
