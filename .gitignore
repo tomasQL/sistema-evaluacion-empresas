@@ -1,4 +1,4 @@
-__pycache__/
 .venv
-/static/css/
-/static/js/
+__pycache__
+see/static/css
+see/static/js
